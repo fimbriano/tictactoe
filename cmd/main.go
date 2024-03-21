@@ -23,6 +23,12 @@ func main() {
     // Set engine
     g.TheEngine = engine.Engine{}
 
+    // Check if players is valid
+    if len(g.Players) != 2 {
+        fmt.Println("Error: There must be exactly two players.")
+        return
+    }
+    
     for{
         fmt.Printf("%s's turn (%s)\n", g.PlayerTurn.Name, g.PlayerTurn.Piece)
 
