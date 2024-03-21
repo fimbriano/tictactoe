@@ -10,6 +10,12 @@ type Engine struct {
 func (e Engine) GameState(board [3][3]game.Piece, players []game.Player) game.State {
 	var winner game.Player
 
+	// Check if players are valid
+	if len(players) != 2 {
+        // fmt.Println("Error: There must be exactly two players.")
+        return game.State{GameCondition: -1}
+    }
+
 	// Check rows
 	for row := 0; row < 3; row++ {
 		if board[row][0] != game.Empty && board[row][0] == board[row][1] && board[row][1] == board[row][2] {
